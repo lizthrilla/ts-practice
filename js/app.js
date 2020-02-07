@@ -1,6 +1,6 @@
 "use strict";
 const startGame = () => {
-    console.log('test');
+    console.log('check');
     const messagesElement = document.getElementById('messages');
     messagesElement.innerText = 'Welcome to MultiMath!  Starting new game...';
 };
