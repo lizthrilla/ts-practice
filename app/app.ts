@@ -1,3 +1,5 @@
+/// <reference path="player.ts" />
+
 const startGame = () => {
   let playerName: string | undefined = getInputValue("playerName");
   logPlayer(playerName);
@@ -6,7 +8,7 @@ const startGame = () => {
   // messagesElement!.innerText = 'Welcome to MultiMath!  Starting new game...'
 
   postScore(100, playerName);
-  postScore(-5, playerName)
+  postScore(-5, playerName);
 };
 
 // passing in a default parameter ( name = 'MultiMath Player') makes the parameter optional
@@ -33,20 +35,24 @@ const postScore = (
 ): void => {
   let logger: (value: string) => void;
   if (score < 0) {
-      logger = logError
+    logger = logError;
   } else {
-      logger = logMessage
+    logger = logMessage;
   }
 
   const scoreElement: HTMLElement | null = document.getElementById("scores");
   scoreElement!.innerText = `${score} - ${playerName}`;
-  logger(`Score: ${score}`)
+  logger(`Score: ${score}`);
 };
 
 document.getElementById("startGame")!.addEventListener("click", startGame);
 
-const logMessage = (message:string) => console.log(message);
+const logMessage = (message: string) => console.log(message);
 
 const logError = (err: string): void => {
-    console.error(err)
-}
+  console.error(err);
+};
+
+const firstPlayer: Player = new Player();
+firstPlayer.name = 'Lanier'
+console.log(firstPlayer.formatName()) 
